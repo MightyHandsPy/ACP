@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Freebuff internal
+.freebuff/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Source maps
+*.map
+
+# Sensitive files
+map.txt
+ACP-ALL-SOURCE-CODE.md
+ACP-WEBSITE-SOURCE-CODE.md

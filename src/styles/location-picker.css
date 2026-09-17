@@ -1,0 +1,329 @@
+/* ============================================================
+   Location Picker — Glassmorphism theme
+   Frosted glass inputs, translucent panels, glowing borders.
+   ============================================================ */
+
+/* === LocationPicker root === */
+.lp {
+  position: relative;
+}
+
+/* --- Header --- */
+.lp__header {
+  margin-bottom: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.lp__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.lp__label-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.lp__label-dot--pickup {
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+.lp__label-dot--delivery {
+  background-color: var(--accent-blue);
+  box-shadow: 0 0 8px rgba(91, 155, 213, 0.3);
+}
+
+.lp__confirmed {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-accent-light);
+  line-height: 1.4;
+  padding-left: calc(8px + 0.5rem);
+  font-weight: 300;
+}
+
+/* --- Input row --- */
+.lp__input-row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.lp__input {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  color: var(--color-text);
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 300;
+  transition: all 0.3s var(--ease-out);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.lp__input:focus {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.06);
+  outline: none;
+  box-shadow: 0 0 20px rgba(201, 162, 76, 0.1);
+}
+
+.lp__input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+/* Override Google Places Autocomplete dropdown */
+.lp .pac-container {
+  background: rgba(16, 19, 30, 0.95) !important;
+  backdrop-filter: var(--glass-blur-heavy) !important;
+  -webkit-backdrop-filter: var(--glass-blur-heavy) !important;
+  border: 1px solid var(--glass-border-light) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+  z-index: 10001 !important;
+  font-family: var(--font-body) !important;
+  margin-top: -1px !important;
+  max-height: 220px !important;
+  overflow: hidden !important;
+}
+
+.lp .pac-item {
+  background: transparent !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.82rem !important;
+  line-height: 1.4 !important;
+  cursor: pointer !important;
+}
+
+.lp .pac-item:hover,
+.lp .pac-item-selected {
+  background: rgba(201, 162, 76, 0.08) !important;
+  color: var(--color-accent) !important;
+}
+
+.lp .pac-item .pac-matched {
+  color: var(--color-accent-light) !important;
+  font-weight: 600 !important;
+}
+
+.lp .pac-item-query {
+  color: var(--color-text) !important;
+  font-size: 0.85rem !important;
+}
+
+.lp .pac-icon {
+  width: 14px !important;
+  height: 14px !important;
+  margin-top: 2px !important;
+}
+
+/* --- Buttons --- */
+.lp__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  transition: all 0.25s var(--ease-out);
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.lp__btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: rgba(201, 162, 76, 0.08);
+  box-shadow: 0 0 16px rgba(201, 162, 76, 0.1);
+}
+
+.lp__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lp__btn--map {
+  font-size: 0.85rem;
+}
+
+.lp__btn--clear {
+  font-size: 0.7rem;
+}
+
+.lp__btn--confirm {
+  background: linear-gradient(135deg, rgba(201, 162, 76, 0.85), rgba(201, 162, 76, 0.65));
+  color: #0c0e12;
+  border: 1px solid rgba(201, 162, 76, 0.3);
+  padding: 0 1rem;
+  width: auto;
+  height: 30px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(201, 162, 76, 0.15);
+}
+
+.lp__btn--confirm:hover {
+  background: linear-gradient(135deg, rgba(219, 184, 106, 0.95), rgba(201, 162, 76, 0.85));
+  border-color: rgba(201, 162, 76, 0.5);
+  box-shadow: 0 4px 20px rgba(201, 162, 76, 0.25);
+}
+
+/* --- Error --- */
+.lp__error {
+  font-size: 0.75rem;
+  color: #e74c3c;
+  margin-top: 0.25rem;
+}
+
+/* --- Inline map wrapper (collapsible) --- */
+.lp__map-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-out), margin-top 0.4s var(--ease-out), opacity 0.3s;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.lp__map-wrapper--open {
+  max-height: 320px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/* --- Map --- */
+.lp__map {
+  width: 100%;
+  height: 180px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- Map action bar --- */
+.lp__map-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+.lp__map-hint {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+/* --- Fallback --- */
+.lp--fallback .lp__input {
+  width: 100%;
+}
+
+/* === Distance bar — Glass strip === */
+.contact__distance-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  background: rgba(201, 162, 76, 0.06);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 162, 76, 0.12);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.contact__distance-bar strong {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.contact__distance-bar-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* === Maps warning — Glass === */
+.contact__maps-warning {
+  padding: 0.6rem 0.9rem;
+  background: rgba(231, 76, 60, 0.06);
+  border: 1px solid rgba(231, 76, 60, 0.12);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: #e8a0a0;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* === Form validation errors === */
+.contact__field-error {
+  font-size: 0.75rem;
+  color: #e74c3c;
+  margin-top: 0.2rem;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .lp__map {
+    height: 160px;
+  }
+
+  .lp__map-wrapper--open {
+    max-height: 260px;
+  }
+
+  .lp__btn {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lp__input {
+    font-size: 16px;
+  }
+
+  .lp__map {
+    height: 150px;
+  }
+
+  .lp__map-wrapper--open {
+    max-height: 240px;
+  }
+}
