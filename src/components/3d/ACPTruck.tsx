@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
-const TRUCK_PATH = '/models/ACP-Truck.glb'
+const TRUCK_PATH = `${import.meta.env.BASE_URL}models/ACP-Truck.glb`
 
 interface ACPTruckProps {
   scale?: number
